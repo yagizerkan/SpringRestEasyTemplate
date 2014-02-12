@@ -13,17 +13,10 @@ import javax.ws.rs.core.Response;
  */
 @Path("/communicator")
 public class Communicator implements Communication {
-
-  private Messenger messenger;
-
   @Override
   public Response saySomething(String aType) {
     Messenger messenger = new SimpleMessenger();
     Message message = messenger.saySomething(aType);
     return Response.ok(message).build();
-  }
-
-  public void setMessenger(Messenger messenger) {
-    this.messenger = messenger;
   }
 }
