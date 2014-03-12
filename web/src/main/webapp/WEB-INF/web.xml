@@ -7,16 +7,12 @@
   <display-name>SpringRestEasy App</display-name>
 
   <listener>
-    <listener-class>
-      org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
-    </listener-class>
+    <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
   </listener>
 
-  <!-- Auto scan REST service -->
-  <context-param>
-    <param-name>resteasy.scan</param-name>
-    <param-value>true</param-value>
-  </context-param>
+  <listener>
+    <listener-class>org.jboss.resteasy.plugins.spring.SpringContextLoaderListener</listener-class>
+  </listener>
 
   <!-- this needs to be the same with resteasy servlet url-pattern -->
   <context-param>
@@ -26,9 +22,7 @@
 
   <servlet>
     <servlet-name>resteasy-servlet</servlet-name>
-    <servlet-class>
-      org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
-    </servlet-class>
+    <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
   </servlet>
 
   <servlet-mapping>
